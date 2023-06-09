@@ -18,8 +18,8 @@ export class EventOrderRegistryApiV1 extends BaseApi {
 	): Observable<ApiResponseWrapper<EventOrder[]>> {
 		const endpoint = new URL(this._endpoint);
 
-		if (params?._id) {
-			endpoint.searchParams.append('id', params._id.trim());
+		if (params?.id) {
+			endpoint.searchParams.append('id', params.id.trim());
 		}
 
 		if (params?.eventId) {
@@ -36,14 +36,6 @@ export class EventOrderRegistryApiV1 extends BaseApi {
 
 		if (params?.clientName) {
 			endpoint.searchParams.append('clientName', params.clientName.trim());
-		}
-
-		if (params?.itemId) {
-			endpoint.searchParams.append('itemId', params.itemId.trim());
-		}
-
-		if (params?.variantId) {
-			endpoint.searchParams.append('variantId', params.variantId.trim());
 		}
 
 		return this.client.get<ApiResponseWrapper<EventOrder[]>>(endpoint.href, {
@@ -69,8 +61,7 @@ export class EventOrderRegistryApiV1 extends BaseApi {
 				status: params.status,
 				operatorId: params.operatorId,
 				clientName: params.clientName,
-				itemId: params.itemId,
-				variantId: params.variantId,
+				itemsId: params.itemsId,
 			},
 			{
 				withCredentials: true,

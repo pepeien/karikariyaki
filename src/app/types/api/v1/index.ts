@@ -4,11 +4,9 @@ import { HttpClient } from '@angular/common/http';
 import {
 	EventOrderRegistryApiV1,
 	EventRegistryApiV1,
-	MenuRegistryApiV1,
 	OperatorAdminApiV1,
 	OperatorRegistryApiV1,
 	ProductRegistryApiV1,
-	ProductVariantRegistryApiV1,
 } from '@types';
 
 export class ApiV1 {
@@ -26,10 +24,6 @@ export class ApiV1 {
 		return new EventOrderRegistryApiV1(this._client);
 	}
 
-	public get menuRegistry() {
-		return new MenuRegistryApiV1(this._client);
-	}
-
 	public get operatorAdmin() {
 		return new OperatorAdminApiV1(this._client);
 	}
@@ -40,9 +34,5 @@ export class ApiV1 {
 
 	public get productRegistry() {
 		return new ProductRegistryApiV1(this._client);
-	}
-
-	public get productVariantRegistry() {
-		return new ProductVariantRegistryApiV1(this._client);
 	}
 }

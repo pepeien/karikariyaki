@@ -1,30 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { Langs, Operator } from 'karikarihelper';
 
 // Service
-import { OperatorService } from '@services';
+import { LanguageService, LoadingService, OperatorService } from '@services';
+
+// Animations
+import { AutomaticAnimation, BasicAnimations, LoggedNavbarAnimation } from '@animations';
 
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
+	animations: [BasicAnimations.breatheAnimation, AutomaticAnimation.slideInOut],
 })
 export class AppComponent implements OnInit {
-	public isLoggedIn = false;
+	/**
+	 * Language
+	 */
+	public selectedLanguage = LanguageService.DEFAULT_LANGUAGE;
 
-	constructor(private _operatorService: OperatorService) {}
+	/**
+	 * In House
+	 */
+	public langList = Langs;
+
+	constructor(private _languageService: LanguageService) {}
 
 	ngOnInit(): void {
-		this._operatorService.operator.subscribe({
-			next: (currentOperator) => {
-				if (!currentOperator) {
-					this.isLoggedIn = false;
-
-					return;
-				}
-
-				this.isLoggedIn = true;
-			},
-			error: () => {
-				this.isLoggedIn = false;
+		this._languageService.language.subscribe({
+			next: (nextLanguage) => {
+				this.selectedLanguage = nextLanguage;
 			},
 		});
 	}

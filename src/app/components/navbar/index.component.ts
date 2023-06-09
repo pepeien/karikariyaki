@@ -1,22 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AnimationEvent } from '@angular/animations';
-import { Menu, Operator, StringService } from 'karikarihelper';
+import { Langs, LangKey, Operator, StringService } from 'karikarihelper';
 
 // Animations
 import { BasicAnimations, LoggedNavbarAnimation, LoginNavbarAnimation } from '@animations';
 
 // Service
-import {
-	ApiService,
-	LanguageService,
-	MenuService,
-	OperatorService,
-	SettingsService,
-} from '@services';
-
-// Langs
-import { Langs, LangKey } from '@langs';
+import { ApiService, LanguageService, OperatorService, SettingsService } from '@services';
 
 @Component({
 	selector: 'app-navbar',
@@ -83,7 +74,6 @@ export class NavbarComponent implements OnInit {
 	/**
 	 * In House
 	 */
-	public menu: Menu[] = [];
 	public operator: Operator | null = null;
 	public langList = Langs;
 	public languageSource = LanguageService.DEFAULT_LANGUAGE;
@@ -91,7 +81,6 @@ export class NavbarComponent implements OnInit {
 	constructor(
 		private _apiService: ApiService,
 		private _languageService: LanguageService,
-		private _menuService: MenuService,
 		private _operatorService: OperatorService,
 		private _settingsService: SettingsService,
 	) {}
@@ -100,17 +89,6 @@ export class NavbarComponent implements OnInit {
 		this._languageService.language.subscribe({
 			next: (nextLanguage) => {
 				this.languageSource = nextLanguage;
-			},
-		});
-
-		this._menuService.menu.subscribe({
-			next: (nextMenu) => {
-				this.menu = nextMenu;
-			},
-			error: (error) => {
-				this.menu = [];
-
-				console.log(error);
 			},
 		});
 
@@ -151,8 +129,6 @@ export class NavbarComponent implements OnInit {
 				setTimeout(() => {
 					this.dispatchLogin();
 				}, BasicAnimations.SHRINK_ANIMATION_DURATION_IN_MS * 2 + 100);
-
-				this._menuService.update();
 
 				return;
 			},

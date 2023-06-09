@@ -1,0 +1,32 @@
+<main *ngIf="orderData" class="order">
+	<app-logo [@pop]></app-logo>
+	<app-order-status [status]="orderData.status"></app-order-status>
+	<div class="order__identifier">
+		<div [@pop]>
+			<mat-icon>local_offer</mat-icon> <span>{{ orderData._id }}</span>
+		</div>
+		<div [@pop]>
+			<mat-icon>store_front</mat-icon> <span>{{ orderData.realm.name }}</span>
+		</div>
+		<div [@pop]>
+			<mat-icon>festival</mat-icon> <span>{{ orderData.event.name }}</span>
+		</div>
+		<div [@pop]>
+			<mat-icon>event</mat-icon> <span>{{ getBasicDateString(orderData.event.date) }}</span>
+		</div>
+	</div>
+	<ul class="order__items">
+		<li
+			*ngFor="let item of orderItems"
+			class="order__item"
+			[@pop]
+		>
+			<div class="order__item-count">
+				<span>x{{ countItemDuplicates(item._id) }}</span>
+			</div>
+			<div class="order__item-name">
+				<span>{{ item.name }}</span>
+			</div>
+		</li>
+	</ul>
+</main>

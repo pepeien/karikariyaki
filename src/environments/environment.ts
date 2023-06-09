@@ -1,4 +1,6 @@
 export const environment = {
 	production: false,
-	rootURL: 'http://localhost/karikariyaki/api',
+	apiURI: 'https://example.org/karikariyaki/api',
+	wsURI: 'wss://example.org/karikariyaki/ws/client',
+	wsPath: '/karikariyaki/ws',
 };

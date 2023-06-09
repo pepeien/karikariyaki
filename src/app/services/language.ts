@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, ReplaySubject } from 'rxjs';
-
-// Interface
-import { InHouseLang } from '@interfaces';
-
-// Languages
-import { LangKey, Langs } from '@langs';
+import { InHouseLang, LangKey, Langs } from 'karikarihelper';
 
 // Services
 import { SettingsService } from '@services';
 
 @Injectable({ providedIn: 'root' })
 export class LanguageService {
-	public static DEFAULT_LANGUAGE_ID: LangKey = 'enUs';
+	public static DEFAULT_LANGUAGE_ID: LangKey = 'ptBr';
 	public static DEFAULT_LANGUAGE = Langs[LanguageService.DEFAULT_LANGUAGE_ID];
 
 	private _languageSubject: ReplaySubject<InHouseLang>;
