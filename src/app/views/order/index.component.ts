@@ -6,7 +6,7 @@ import { AutomaticAnimation } from '@animations';
 
 // Services
 import { LanguageService, LoadingService, SocketService } from '@services';
-import { ApiResponseWrapper, EventOrder, Product } from 'karikarihelper';
+import { ApiResponseWrapper, EventOrder, OrderItem, Product } from 'karikarihelper';
 
 @Component({
 	selector: 'app-order-view',
@@ -23,7 +23,7 @@ export class OrderViewComponent implements OnInit {
 	 * In House
 	 */
 	public orderData: EventOrder | null = null;
-	public orderItems: Pick<Product, '_id' | 'name'>[] = [];
+	public orderItems: OrderItem[] = [];
 
 	constructor(
 		private _activedRoute: ActivatedRoute,
@@ -55,9 +55,7 @@ export class OrderViewComponent implements OnInit {
 			this.orderData = serializedResponse.result;
 
 			this.orderData.items.forEach((item) => {
-				if (!this.orderItems.find((_) => _._id === item._id)) {
-					this.orderItems.push(item);
-				}
+				this.orderItems.push(item);
 			});
 		});
 
@@ -66,16 +64,6 @@ export class OrderViewComponent implements OnInit {
 				this.selectedLanguage = nextLanguage;
 			},
 		});
-	}
-
-	public countItemDuplicates(itemId: string): number {
-		if (!this.orderData) {
-			return -1;
-		}
-
-		const foundDuplicates = this.orderData.items.filter((item) => item._id === itemId);
-
-		return foundDuplicates.length;
 	}
 
 	public getBasicDateString(date: Date): string {

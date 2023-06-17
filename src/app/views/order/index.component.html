@@ -21,11 +21,8 @@
 			class="order__item"
 			[@pop]
 		>
-			<div class="order__item-count">
-				<span>x{{ countItemDuplicates(item._id) }}</span>
-			</div>
 			<div class="order__item-name">
-				<span>{{ item.name }}</span>
+				<span>{{ item.product.name }}</span>
 			</div>
 		</li>
 	</ul>
