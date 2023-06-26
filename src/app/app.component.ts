@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Langs, Operator } from 'karikarihelper';
 
 // Service
-import { LanguageService, LoadingService, OperatorService } from '@services';
+import { LanguageService } from '@services';
 
 // Animations
 import { AutomaticAnimation, BasicAnimations, LoggedNavbarAnimation } from '@animations';

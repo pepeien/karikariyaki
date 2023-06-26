@@ -2,11 +2,11 @@
 export { BaseApi } from './api/base';
 export { ApiV1 } from './api/v1';
 
-// Admin
-export { OperatorAdminApiV1 } from './api/v1/operator-admin';
+// Auth
+export { ApiV1OperatorAuth } from './api/v1/operator';
+
+// Internals
+export { Interceptor } from './api/interceptor';
 
 // Registry
-export { EventOrderRegistryApiV1 } from './api/v1/registry/event-order';
-export { EventRegistryApiV1 } from './api/v1/registry/event';
-export { OperatorRegistryApiV1 } from './api/v1/registry/operator';
-export { ProductRegistryApiV1 } from './api/v1/registry/product';
+export { ApiV1EventRegistry, ApiV1EventOrderRegistry } from './api/v1/registry/event';
