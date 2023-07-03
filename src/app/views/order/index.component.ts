@@ -44,6 +44,8 @@ export class OrderViewComponent implements OnInit {
 		this._socketService.socket.emit('order:join', orderId);
 
 		this._socketService.socket.on('order:refresh', (response) => {
+			this.orderItems = [];
+
 			this._loadingService.updateLoading(false);
 
 			const serializedResponse = response as ApiResponseWrapper<EventOrder>;
