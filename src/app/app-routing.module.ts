@@ -5,24 +5,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeViewComponent, OrderViewComponent } from '@views';
 
 const routes: Routes = [
-	{
-		path: '',
-		pathMatch: 'full',
-		component: HomeViewComponent,
-	},
-	{
-		path: 'order/:id',
-		pathMatch: 'full',
-		component: OrderViewComponent,
-	},
-	{
-		path: '**',
-		redirectTo: '',
-	},
+    {
+        path: '',
+        pathMatch: 'full',
+        component: HomeViewComponent,
+    },
+    {
+        path: 'order/:id',
+        pathMatch: 'full',
+        component: OrderViewComponent,
+    },
+    {
+        path: '**',
+        redirectTo: '',
+    },
 ];
 
 @NgModule({
-	imports: [RouterModule.forRoot(routes)],
-	exports: [RouterModule],
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
 })
 export class AppRoutingModule {}

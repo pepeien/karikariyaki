@@ -16,16 +16,16 @@ import { LoaderComponentModule } from '@components';
 import { ApiService } from '@services';
 
 @NgModule({
-	declarations: [AppComponent],
-	imports: [
-		AppRoutingModule,
-		BrowserAnimationsModule,
-		BrowserModule,
-		HttpClientModule,
-		LoaderComponentModule,
-		SharedModule,
-	],
-	providers: [ApiService, RouterModule],
-	bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        BrowserModule,
+        HttpClientModule,
+        LoaderComponentModule,
+        SharedModule,
+    ],
+    providers: [ApiService, RouterModule],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

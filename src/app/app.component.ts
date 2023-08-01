@@ -8,28 +8,28 @@ import { LanguageService } from '@services';
 import { AutomaticAnimation, BasicAnimations, LoggedNavbarAnimation } from '@animations';
 
 @Component({
-	selector: 'app-root',
-	templateUrl: './app.component.html',
-	animations: [BasicAnimations.breatheAnimation, AutomaticAnimation.slideInOut],
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    animations: [BasicAnimations.breatheAnimation, AutomaticAnimation.slideInOut],
 })
 export class AppComponent implements OnInit {
-	/**
-	 * Language
-	 */
-	public selectedLanguage = LanguageService.DEFAULT_LANGUAGE;
+    /**
+     * Language
+     */
+    public selectedLanguage = LanguageService.DEFAULT_LANGUAGE;
 
-	/**
-	 * In House
-	 */
-	public langList = Langs;
+    /**
+     * In House
+     */
+    public langList = Langs;
 
-	constructor(private _languageService: LanguageService) {}
+    constructor(private _languageService: LanguageService) {}
 
-	ngOnInit(): void {
-		this._languageService.language.subscribe({
-			next: (nextLanguage) => {
-				this.selectedLanguage = nextLanguage;
-			},
-		});
-	}
+    ngOnInit(): void {
+        this._languageService.language.subscribe({
+            next: (nextLanguage) => {
+                this.selectedLanguage = nextLanguage;
+            },
+        });
+    }
 }

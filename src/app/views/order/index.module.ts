@@ -11,8 +11,8 @@ import { OrderViewComponent } from './index.component';
 import { LogoModule, OrderStatusModule } from '@components';
 
 @NgModule({
-	declarations: [OrderViewComponent],
-	imports: [CommonModule, LogoModule, MaterialBundle, OrderStatusModule],
-	exports: [OrderViewComponent],
+    declarations: [OrderViewComponent],
+    imports: [CommonModule, LogoModule, MaterialBundle, OrderStatusModule],
+    exports: [OrderViewComponent],
 })
 export class OrderViewModule {}
