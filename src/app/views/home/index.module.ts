@@ -11,8 +11,8 @@ import { HomeViewComponent } from './index.component';
 import { LogoModule } from '@components';
 
 @NgModule({
-	declarations: [HomeViewComponent],
-	imports: [CommonModule, LogoModule, MaterialBundle],
-	exports: [HomeViewComponent],
+    declarations: [HomeViewComponent],
+    imports: [CommonModule, LogoModule, MaterialBundle],
+    exports: [HomeViewComponent],
 })
 export class HomeViewModule {}
