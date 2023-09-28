@@ -1,5 +1,7 @@
 # karikariyaki
 
+This application depends on one [API](https://github.com/pepeien/karikariyaki-api) and can be divided in four pages, [Client page](https://github.com/pepeien/karikariyaki), [Admin Page](https://github.com/pepeien/karikariyaki-admin), [Prompter Page](https://github.com/pepeien/karikariyaki-prompter) and [Odering Page](https://github.com/pepeien/karikariyaki-register), even tough each page looks similar logic and design wise, each one of those serves its purpose.
+
 ### tl;dr
 
 ```
